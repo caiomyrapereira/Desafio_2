@@ -10,31 +10,37 @@
 <body>
 
     <div class="sectionInput">
-        
         <input 
          type="search"
          placeholder="Name Usuário"
          ref="search"
          v-model="inputValue"
+         v-on:focus="oppen"
+         v-on:blur="close"
         >
        
         <ul  class="list" type="none" >
             <li 
              v-for="(client,index) in clients"
              v-if=" filterClient(client)"
+             v-on:click="setInputValue(client)"  
             >
-                <a href="#" > 
+                <a  href="#"> 
                    {{ client.name }} 
                 </a>
+
             </li>
         </ul>
+
     </div>
 
     <div class="sectionUsers">
+
         <ul  class="list" type="none">
             <li 
              v-for="(client,index) in clients"
              v-if="filterUser(client) "
+             v-on:click="clickUser(client)"
             >
                 <div>
                     <img v-bind:src="img(index)" alt="">
@@ -43,6 +49,7 @@
                 <p> Tel - {{client.telefone}}</p>
             </li>
         </ul>
+        
     </div>
   
     <script src="main.js" ></script>

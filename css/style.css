@@ -29,7 +29,7 @@ body{
 
 
 .sectionInput .list{
-    padding-left: 10px;
+    padding: 0px;
     left: 10px;
     top: 30px;
     width: 250px;
@@ -38,13 +38,23 @@ body{
     background-color:#1c1c1c;
 }
 
+.sectionInput .list li{
+    height:30px;
+    text-align: center;
+    border:1px solid black;
+}
+
+.sectionInput .list li:hover{
+    background-color:black ;
+    color:white;
+}
+
 .sectionInput .list li a{
+    text-decoration:none;
     color:#697277;
 }
 
-.sectionInput .list li a:hover{
-    color:white;
-}
+
 
 /*--- sectionUsers ---*/
 

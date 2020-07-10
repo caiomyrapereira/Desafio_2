@@ -73,46 +73,32 @@
                 const regex = RegExp('^'+this.removeSpace(this.inputValue),'gim');
                 return regex.test(elem.name) && this.inputStatus;     
             },
-            setInputValue(){
-                $a = document.querySelectorAll('a');
-                $a.forEach.call($a,(elem ,index)=>{
-                    elem.addEventListener('click',()=>{
-                        this.inputValue = this.removeSpace(elem.innerHTML);
-                    });
-                });
+            setInputValue(client){
+                this.inputValue = client.name; 
             },
             removeSpace(string){
                 const newString = string.replace(/\s{2,}/g, ' ').trim();
                 return newString;
             },
             oppen(){
-                document.querySelector('input').onfocus  = () =>{
-                    this.inputStatus = true;
-                };      
+                this.inputStatus = true; 
             },
             close(){
-                document.querySelector('input').onblur = () =>{
-                    setTimeout(()=>{
-                       this.inputStatus = false;
-                    },250);
-                }; 
-            },
-            start(){
-                this.oppen();
-                this.close();          
+                setTimeout(()=>{
+                    this.inputStatus = false;
+                },250); 
             }
         },
-        
-        updated(){
-            return this.inputStatus  && this.setInputValue();                   
-        }
+
     });
     
     const sectionUsers = new Vue({
         el:'.sectionUsers',
+        
         data:{
             clients:dropDown.clients
         },
+
         methods:{
             img(index){
                 const arr = '1 2 3 '.repeat(Math.ceil(this.clients.length/3)).trim().split(' ');
@@ -121,10 +107,11 @@
             filterUser(elem){
                 const regex = RegExp('^'+dropDown.removeSpace(dropDown.inputValue),'gim');
                 return regex.test(elem.name);
+            },
+            clickUser(client){
+                dropDown.inputValue = client.name;
             }
         }
     })
-
-    dropDown.start();
 
 })();
