@@ -3,142 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Teste 2</title>
 </head>
 <body>
+
     <div class="sectionInput">
-        <input type="text" name="" id="" placeholder="Name">
-    </div>
-    <div class="sectionUsers">
-        <ul>
-            <li>
-                <div>
-                    <img src="./img/user01.png" alt="">
-                </div>
-                <p>User 1</p>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/user02.png" alt="">
-                </div>
-                <p>User 2</p>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/user03.png" alt="">
-                </div>
-                <p>User 3</p>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/user01.png" alt="">
-                </div>
-                <p>User 1</p>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/user02.png" alt="">
-                </div>
-                <p>User 2</p>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/user03.png" alt="">
-                </div>
-                <p>User 3</p>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/user01.png" alt="">
-                </div>
-                <p>User 1</p>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/user02.png" alt="">
-                </div>
-                <p>User 2</p>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/user03.png" alt="">
-                </div>
-                <p>User 3</p>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/user01.png" alt="">
-                </div>
-                <p>User 1</p>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/user02.png" alt="">
-                </div>
-                <p>User 2</p>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/user03.png" alt="">
-                </div>
-                <p>User 3</p>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/user01.png" alt="">
-                </div>
-                <p>User 1</p>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/user02.png" alt="">
-                </div>
-                <p>User 2</p>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/user03.png" alt="">
-                </div>
-                <p>User 3</p>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/user01.png" alt="">
-                </div>
-                <p>User 1</p>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/user02.png" alt="">
-                </div>
-                <p>User 2</p>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/user03.png" alt="">
-                </div>
-                <p>User 3</p>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/user01.png" alt="">
-                </div>
-                <p>User 1</p>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/user02.png" alt="">
-                </div>
-                <p>User 2</p>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/user03.png" alt="">
-                </div>
-                <p>User 3</p>
+        
+        <input 
+         type="search"
+         placeholder="Name Usuário"
+         ref="search"
+         v-model="inputValue"
+        >
+       
+        <ul  class="list" type="none" >
+            <li 
+             v-for="(client,index) in clients"
+             v-if=" filterClient(client)"
+            >
+                <a href="#" > 
+                   {{ client.name }} 
+                </a>
             </li>
         </ul>
     </div>
+
+    <div class="sectionUsers">
+        <ul  class="list" type="none">
+            <li 
+             v-for="(client,index) in clients"
+             v-if="filterUser(client) "
+            >
+                <div>
+                    <img v-bind:src="img(index)" alt="">
+                </div>
+                <p>{{client.name}}</p>
+                <p> Tel - {{client.telefone}}</p>
+            </li>
+        </ul>
+    </div>
+  
+    <script src="main.js" ></script>
 </body>
 </html>
