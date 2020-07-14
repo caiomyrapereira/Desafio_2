@@ -80,6 +80,12 @@
                 const newString = string.replace(/\s{2,}/g, ' ').trim();
                 return newString;
             },
+            moverDown(e){
+                //console.log(e);
+            },
+            moverUp(e){
+                //console.log(e);
+            },
             oppen(){
                 this.inputStatus = true; 
             },

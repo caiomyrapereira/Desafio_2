@@ -40,7 +40,8 @@ body{
 
 .sectionInput .list li{
     height:30px;
-    text-align: center;
+    padding-left: 30px;
+    cursor:pointer;
     border:1px solid black;
 }
 
@@ -83,6 +84,7 @@ body{
     height: 300px;
     background-color: #2f3136;
     margin: 20px;
+    cursor:pointer;
     color:#7b848b;
     
     /*-flexbox--*/

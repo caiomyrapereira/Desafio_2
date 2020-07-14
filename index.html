@@ -17,6 +17,8 @@
          v-model="inputValue"
          v-on:focus="oppen"
          v-on:blur="close"
+         v-on:keyup.down="moverDown"
+         v-on:keyup.up="moverUp"
         >
        
         <ul  class="list" type="none" >
